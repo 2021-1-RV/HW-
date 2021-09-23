@@ -3,15 +3,12 @@
 const body = document.body
 const bgColors = ['Orange', 'Pink', 'Lightblue', 'PaleGoldenRod', 'SpringGreen']
 const menu = body.querySelector('.menu')
-const menuItem = menu.querySelectorAll('.menu__item')
-const menuBorder = menu.querySelector('.menu__border')
+const menuItem = menu.querySelectorAll('.menuItem')
+const menuBorder = menu.querySelector('.menuBorder')
 let active = menu.querySelector('.active')
 
 function clickItem(item, index) {
-  menu.style.removeProperty('--timeOut')
-
   if (active == item) return
-
   if (active) {
     active.classList.remove('active')
   }
@@ -39,5 +36,4 @@ menuItem.forEach((item, index) => {
 
 window.addEventListener('resize', () => {
   offset(active, menuBorder)
-  menu.style.setProperty('--timeOut', 'none')
 })

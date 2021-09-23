@@ -30,7 +30,7 @@ body {
   background-color: var(--bgBlack);
 }
 
-.menu__item {
+.menuItem {
   all: unset;
   display: flex;
   justify-content: center;
@@ -42,7 +42,7 @@ body {
   transition: transform var(--duration);
 }
 
-.menu__item::before {
+.menuItem::before {
   content: '';
   z-index: -1;
   width: 4.2em;
@@ -53,11 +53,11 @@ body {
   transition: background-color var(--duration), transform var(--duration);
 }
 
-.menu__item.active {
+.menuItem.active {
   transform: translate3d(0, -0.8em, 0);
 }
 
-.menu__item.active::before {
+.menuItem.active::before {
   transform: scale(1);
   background-color: var(--bgItemColor);
 }
@@ -74,7 +74,7 @@ body {
   stroke-dasharray: 400;
 }
 
-.menu__item.active .icon {
+.menuItem.active .icon {
   animation: strok 1.5s reverse;
 }
 
@@ -84,7 +84,7 @@ body {
   }
 }
 
-.menu__border {
+.menuBorder {
   left: 35px;
   bottom: 99%;
   width: 10em;
