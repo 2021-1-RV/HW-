@@ -75,10 +75,10 @@ body {
 }
 
 .menuItem.active .icon {
-  animation: strok 1.5s reverse;
+  animation: stroke 1.5s reverse;
 }
 
-@keyframes strok {
+@keyframes stroke {
   100% {
     stroke-dashoffset: 400;
   }
