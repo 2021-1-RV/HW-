@@ -1,0 +1,96 @@
+html {
+  box-sizing: border-box;
+  --bgBlack: black;
+  --duration: 1s;
+}
+
+html *,
+html *::before,
+html *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: Lightblue;
+  overflow: hidden;
+  transition: background-color var(--duration);
+}
+
+.menu {
+  display: flex;
+  position: relative;
+  width: 33em;
+  font-size: 1.5em;
+  padding: 0 3em;
+  background-color: var(--bgBlack);
+}
+
+.menu__item {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  z-index: 100;
+  cursor: pointer;
+  padding: 0.5em 0 0.75em;
+  transition: transform var(--duration);
+}
+
+.menu__item::before {
+  content: '';
+  z-index: -1;
+  width: 4.2em;
+  height: 4.2em;
+  border-radius: 50%;
+  position: absolute;
+  transform: scale(0);
+  transition: background-color var(--duration), transform var(--duration);
+}
+
+.menu__item.active {
+  transform: translate3d(0, -0.8em, 0);
+}
+
+.menu__item.active::before {
+  transform: scale(1);
+  background-color: var(--bgItemColor);
+}
+
+.icon {
+  width: 2.5em;
+  height: 2.5em;
+  stroke: white;
+  fill: transparent;
+  stroke-width: 1;
+  stroke-miterlimit: 10;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 400;
+}
+
+.menu__item.active .icon {
+  animation: strok 1.5s reverse;
+}
+
+@keyframes strok {
+  100% {
+    stroke-dashoffset: 400;
+  }
+}
+
+.menu__border {
+  left: 35px;
+  bottom: 99%;
+  width: 10em;
+  height: 2.5em;
+  position: absolute;
+  clip-path: url(#menu);
+  background-color: var(--bgBlack);
+  transition: transform var(--duration);
+}
